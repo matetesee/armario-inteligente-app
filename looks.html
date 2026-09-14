@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Looks · Armario Inteligente</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-top">
+  <div class="app-top-row">
+    <div class="brand">ARMARIO <span>INTELIGENTE</span></div>
+    <nav class="app-nav">
+      <a href="index.html">Inicio</a>
+      <a href="prendas.html">Mis 15 Prendas</a>
+      <a href="looks.html" class="active">Generador de Looks</a>
+      <a href="ajustes-visuales.html">Ajustes Visuales</a>
+      <a href="colores.html">Colores</a>
+      <a href="comunidad.html">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-h">Generador de <span class="am">Looks</span></h1>
+  <p class="page-sub">Combinamos tus 15 prendas automáticamente. Elegí la ocasión y descubrí looks armados al instante — no repetís el mismo dos veces.</p>
+
+  <div class="stat-box">
+    <div>
+      <div class="num" id="totalNum">130</div>
+      <div class="lab">combinaciones calculadas con tus 15 prendas</div>
+    </div>
+    <p>Cada vez que sumes una prenda nueva a tu placard, este número crece exponencialmente.</p>
+  </div>
+
+  <div class="pills" id="pills">
+    <button class="pill active" data-occ="all">Todos</button>
+    <button class="pill" data-occ="casual">Casual</button>
+    <button class="pill" data-occ="trabajo">Trabajo</button>
+    <button class="pill" data-occ="salidas">Salidas</button>
+  </div>
+
+  <button class="btn big" id="shuffleBtn" style="margin-bottom:24px">🔀 Generar looks al azar</button>
+
+  <div class="grid cols3" id="combosGrid"></div>
+</main>
+
+<footer>
+  Armario Inteligente — Método JB · <a href="comunidad.html">¿Necesitás ayuda? Sumate a la comunidad</a>
+</footer>
+
+<script src="app-data.js"></script>
+<script>
+const occLabel = { casual:'Casual', trabajo:'Trabajo', salidas:'Salidas' };
+let currentFilter = 'all';
+document.getElementById('totalNum').textContent = TOTAL_COMBOS;
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+
+function render(){
+  const pool = currentFilter==='all' ? ALL_COMBOS : ALL_COMBOS.filter(c=>c.occasion===currentFilter);
+  const sample = shuffle(pool).slice(0, 12);
+  const grid = document.getElementById('combosGrid');
+  if(sample.length===0){
+    grid.innerHTML = '<p style="color:var(--soft)">No hay combinaciones para este filtro todavía.</p>';
+    return;
+  }
+  grid.innerHTML = sample.map(c => `
+    <div class="combo">
+      <span class="occ ${c.occasion}">${occLabel[c.occasion]}</span>
+      <ul>
+        ${c.pieces.map(p => `<li><span class="dot" style="background:${p.color}"></span>${p.name}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+}
+
+document.getElementById('pills').addEventListener('click', e=>{
+  const btn = e.target.closest('.pill');
+  if(!btn) return;
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.occ;
+  render();
+});
+document.getElementById('shuffleBtn').addEventListener('click', render);
+
+render();
+</script>
+</body>
+</html>

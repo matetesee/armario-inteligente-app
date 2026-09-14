@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 Prendas · Armario Inteligente</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-top">
+  <div class="app-top-row">
+    <div class="brand">ARMARIO <span>INTELIGENTE</span></div>
+    <nav class="app-nav">
+      <a href="index.html">Inicio</a>
+      <a href="prendas.html" class="active">Mis 15 Prendas</a>
+      <a href="looks.html">Generador de Looks</a>
+      <a href="ajustes-visuales.html">Ajustes Visuales</a>
+      <a href="colores.html">Colores</a>
+      <a href="comunidad.html">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-h">Tus <span class="am">15 prendas</span> clave</h1>
+  <p class="page-sub">Estas son las piezas inteligentes que, combinadas entre sí, arman todo tu placard. Elegidas para que ninguna quede "guardada sin usar".</p>
+
+  <div class="empty-note">💡 No vendemos ropa nosotros: te linkeamos una búsqueda para que elijas la marca, talle y precio que prefieras.</div>
+
+  <div class="grid cols3" id="piecesGrid"></div>
+</main>
+
+<footer>
+  Armario Inteligente — Método JB · <a href="comunidad.html">¿Necesitás ayuda? Sumate a la comunidad</a>
+</footer>
+
+<script src="app-data.js"></script>
+<script>
+const catLabel = { top:'Top', bottom:'Bottom', outerwear:'Capa', dress:'Vestido', shoes:'Calzado', bag:'Bolso' };
+const grid = document.getElementById('piecesGrid');
+grid.innerHTML = PIECES.map(p => `
+  <div class="card">
+    <div class="swatch" style="background:${p.color};${p.border ? 'border-bottom:1px solid var(--line)':''}">
+      <span class="tag">${catLabel[p.cat]}</span>
+      <span style="filter:${p.color==='#1A1A1A'||p.color==='#222222'?'invert(1) grayscale(1) brightness(1.6)':'none'}">${p.icon}</span>
+    </div>
+    <div class="card-body">
+      <h3>${p.name}</h3>
+      <p>${PIECE_TIPS[p.id] || ''}</p>
+      <a class="buy-link" href="${buyLink(p.name)}" target="_blank" rel="noopener">Buscar para comprar →</a>
+    </div>
+  </div>
+`).join('');
+</script>
+</body>
+</html>

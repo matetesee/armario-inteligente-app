@@ -1,0 +1,12 @@
+{
+  "name": "armario-inteligente-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App del producto Armario Inteligente / 150 Looks con 15 Prendas (acceso post-compra)",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

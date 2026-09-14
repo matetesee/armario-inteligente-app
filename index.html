@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Armario Inteligente</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-top">
+  <div class="app-top-row">
+    <div class="brand">ARMARIO <span>INTELIGENTE</span></div>
+    <nav class="app-nav">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="prendas.html">Mis 15 Prendas</a>
+      <a href="looks.html">Generador de Looks</a>
+      <a href="ajustes-visuales.html">Ajustes Visuales</a>
+      <a href="colores.html">Colores</a>
+      <a href="comunidad.html">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-h">¡Hola, <span class="am">crack</span>! 👋</h1>
+  <p class="page-sub">Este es tu Armario Inteligente: 15 prendas clave, infinitas formas de combinarlas. Explorá cada sección para armar tu placard sin volver a comprar de más.</p>
+
+  <div class="stat-box">
+    <div>
+      <div class="num" id="comboCount">130</div>
+      <div class="lab">looks distintos posibles con tus 15 prendas</div>
+    </div>
+    <p>Nuestro generador combina automáticamente tus prendas y te dice cuándo usar cada look: casual, trabajo o salidas.</p>
+  </div>
+
+  <div class="qn-grid">
+    <a class="qn-card" href="prendas.html">
+      <div class="qn-icon">👗</div>
+      <h3>Mis 15 Prendas</h3>
+      <p>La lista completa de tu armario cápsula, con tips de cada pieza y dónde conseguirla.</p>
+      <span class="go">Ver prendas →</span>
+    </a>
+    <a class="qn-card" href="looks.html">
+      <div class="qn-icon">✨</div>
+      <h3>Generador de Looks</h3>
+      <p>Filtrá por ocasión y descubrí combinaciones armadas al instante con tus prendas.</p>
+      <span class="go">Generar looks →</span>
+    </a>
+    <a class="qn-card" href="ajustes-visuales.html">
+      <div class="qn-icon">📐</div>
+      <h3>Guía de Ajustes Visuales</h3>
+      <p>Trucos de styling según tu tipo de cuerpo para resaltar tus puntos fuertes.</p>
+      <span class="go">Ver guía →</span>
+    </a>
+    <a class="qn-card" href="colores.html">
+      <div class="qn-icon">🎨</div>
+      <h3>Guía de Colores</h3>
+      <p>Cómo combinar colores de forma elegante y sofisticada (bono de lanzamiento).</p>
+      <span class="go">Ver guía →</span>
+    </a>
+  </div>
+
+  <div class="section">
+    <h2>¿Por dónde <span class="am">empezar</span>?</h2>
+    <ul class="tip-list">
+      <li><span class="ck">1</span> Revisá tus <a href="prendas.html" style="color:var(--accent);font-weight:700">15 prendas</a> y comprá las que todavía no tengas.</li>
+      <li><span class="ck">2</span> Usá el <a href="looks.html" style="color:var(--accent);font-weight:700">generador de looks</a> cada mañana según la ocasión del día.</li>
+      <li><span class="ck">3</span> Sumate a la <a href="comunidad.html" style="color:var(--accent);font-weight:700">comunidad</a> para looks nuevos y descuentos todas las semanas.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  Armario Inteligente — Método JB · <a href="comunidad.html">¿Necesitás ayuda? Sumate a la comunidad</a>
+</footer>
+
+<script src="app-data.js"></script>
+<script>document.getElementById('comboCount').textContent = TOTAL_COMBOS;</script>
+</body>
+</html>

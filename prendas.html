@@ -23,12 +23,14 @@
 </header>
 
 <main>
-  <h1 class="page-h">Tus <span class="am">15 prendas</span> clave</h1>
+  <h1 class="page-h">Tus <span class="am">15 prendas</span> clave, <span data-greet>crack</span></h1>
   <p class="page-sub">Estas son las piezas inteligentes que, combinadas entre sí, arman todo tu placard. Elegidas para que ninguna quede "guardada sin usar".</p>
 
   <div class="empty-note">💡 No vendemos ropa nosotros: te linkeamos una búsqueda para que elijas la marca, talle y precio que prefieras.</div>
 
   <div class="grid cols3" id="piecesGrid"></div>
+
+  <div id="testimonialsHost" style="margin-top:36px"></div>
 </main>
 
 <footer>
@@ -36,6 +38,7 @@
 </footer>
 
 <script src="app-data.js"></script>
+<script src="app-shared.js"></script>
 <script>
 const catLabel = { top:'Top', bottom:'Bottom', outerwear:'Capa', dress:'Vestido', shoes:'Calzado', bag:'Bolso' };
 const grid = document.getElementById('piecesGrid');
@@ -52,6 +55,7 @@ grid.innerHTML = PIECES.map(p => `
     </div>
   </div>
 `).join('');
+renderTestimonials('#testimonialsHost', { title:'Compradoras hablando de sus *prendas*', tag:'prendas', count:3 });
 </script>
 </body>
 </html>

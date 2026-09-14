@@ -23,7 +23,7 @@
 </header>
 
 <main>
-  <h1 class="page-h">Generador de <span class="am">Looks</span></h1>
+  <h1 class="page-h">Generador de <span class="am">Looks</span>, <span data-greet>crack</span></h1>
   <p class="page-sub">Combinamos tus 15 prendas automáticamente. Elegí la ocasión y descubrí looks armados al instante — no repetís el mismo dos veces.</p>
 
   <div class="stat-box">
@@ -41,9 +41,11 @@
     <button class="pill" data-occ="salidas">Salidas</button>
   </div>
 
-  <button class="btn big" id="shuffleBtn" style="margin-bottom:24px">🔀 Generar looks al azar</button>
+  <button class="btn big" id="shuffleBtn" style="margin-bottom:26px">🔀 Generar looks al azar</button>
 
   <div class="grid cols3" id="combosGrid"></div>
+
+  <div id="testimonialsHost" style="margin-top:36px"></div>
 </main>
 
 <footer>
@@ -51,6 +53,7 @@
 </footer>
 
 <script src="app-data.js"></script>
+<script src="app-shared.js"></script>
 <script>
 const occLabel = { casual:'Casual', trabajo:'Trabajo', salidas:'Salidas' };
 let currentFilter = 'all';
@@ -91,6 +94,7 @@ document.getElementById('pills').addEventListener('click', e=>{
 document.getElementById('shuffleBtn').addEventListener('click', render);
 
 render();
+renderTestimonials('#testimonialsHost', { title:'Cómo usan el *generador*', tag:'looks', count:3 });
 </script>
 </body>
 </html>

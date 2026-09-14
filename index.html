@@ -23,8 +23,10 @@
 </header>
 
 <main>
-  <h1 class="page-h">¡Hola, <span class="am">crack</span>! 👋</h1>
-  <p class="page-sub">Este es tu Armario Inteligente: 15 prendas clave, infinitas formas de combinarlas. Explorá cada sección para armar tu placard sin volver a comprar de más.</p>
+  <div class="hero">
+    <h1>¡Hola, <span data-greet>crack</span>! 👋</h1>
+    <p>Este es tu Armario Inteligente: 15 prendas clave, infinitas formas de combinarlas. Explorá cada sección para armar tu placard sin volver a comprar de más.</p>
+  </div>
 
   <div class="stat-box">
     <div>
@@ -69,6 +71,8 @@
       <li><span class="ck">3</span> Sumate a la <a href="comunidad.html" style="color:var(--accent);font-weight:700">comunidad</a> para looks nuevos y descuentos todas las semanas.</li>
     </ul>
   </div>
+
+  <div id="testimonialsHost"></div>
 </main>
 
 <footer>
@@ -76,6 +80,10 @@
 </footer>
 
 <script src="app-data.js"></script>
-<script>document.getElementById('comboCount').textContent = TOTAL_COMBOS;</script>
+<script src="app-shared.js"></script>
+<script>
+document.getElementById('comboCount').textContent = TOTAL_COMBOS;
+renderTestimonials('#testimonialsHost', { title:'Lo que dicen otras *mujeres*', count:3 });
+</script>
 </body>
 </html>

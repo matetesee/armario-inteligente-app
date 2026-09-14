@@ -9,10 +9,8 @@ Esta es la app que reciben las clientas después de comprar en el checkout del q
 - `looks.html` — Generador de looks: combina las 15 prendas en vivo (130 combinaciones calculadas), filtrable por ocasión
 - `ajustes-visuales.html` — Guía de styling por tipo de cuerpo
 - `colores.html` — Guía de colores (bono de lanzamiento)
-- `comunidad.html` — CTA al grupo de WhatsApp "Secretos de Ju"
 
 ## Antes de producción
-- Reemplazá `WHATSAPP_GROUP_LINK` en `comunidad.html` por tu link real de grupo.
 - Los links de "comprar" en `prendas.html` van a una búsqueda de Google Shopping (no inventamos URLs de producto reales) — si tenés links de tiendas específicas, reemplazalos en `app-data.js` (`buyLink`).
 - v1 no tiene login: cualquiera con la URL puede entrar. Si querés restringir el acceso solo a compradoras (vía email que llega por webhook de Hotmart), avisame y lo sumamos.
 
